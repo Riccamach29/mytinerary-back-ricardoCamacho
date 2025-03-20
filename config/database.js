@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import 'dotenv/config.js'
+
 
 let url = process.env.URI_MONGO
 console.log(url);
