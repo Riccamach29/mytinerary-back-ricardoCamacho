@@ -1,4 +1,3 @@
-
 import City from "../../models/City.js";
 
 let createOne = async (req, res, next) => {
@@ -12,7 +11,6 @@ let createOne = async (req, res, next) => {
             error.status = 400;
             return next(error);
         }
-
         let createCity = await City.create(cityInfo);
         return res.status(201).json({
             response: createCity
