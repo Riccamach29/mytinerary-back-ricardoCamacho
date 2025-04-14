@@ -51,4 +51,23 @@ let itineraryById = async (req, res, next) => {
     }
 }
 
-export { allItineraries, itineraryByName, itineraryById }
+let itinerariesByCity = async (req, res, next) => {
+    try {
+        let cityId = req.params.cityId;
+        let itineraries = await Itinerary.find({ city: cityId }).populate("city", "name").exec();
+
+        if (!itineraries || itineraries.length === 0) {
+            const error = new Error('No se encontraron itinerarios para esta ciudad');
+            error.status = 404;
+            return next(error);
+        }
+
+        return res.status(200).json({
+            response: itineraries
+        });
+    } catch (error) {
+        next(error)
+    }
+}
+
+export { allItineraries, itineraryByName, itineraryById, itinerariesByCity };

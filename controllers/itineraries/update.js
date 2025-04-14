@@ -20,6 +20,7 @@ let update = async (req, res, next) => {
         if (itineraryInfo.duration !== undefined) fieldsToUpdate.duration = itineraryInfo.duration;
         if (itineraryInfo.hashtags !== undefined) fieldsToUpdate.hashtags = itineraryInfo.hashtags;
         if (itineraryInfo.city !== undefined) fieldsToUpdate.city = itineraryInfo.city;
+        if (itineraryInfo.likes !== undefined) fieldsToUpdate.likes = itineraryInfo.likes;
         
         // Verifica que haya al menos un campo para actualizar
         if (Object.keys(fieldsToUpdate).length === 0) {
