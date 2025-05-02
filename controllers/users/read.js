@@ -2,11 +2,12 @@ import User from "../../models/User.js";
 
 let allUser = async(req,res,next)=>{
     try {
-        let {name, country, role} = req.query
+        let {name, country, role, email} = req.query
         let query = {}
         if (name) { query.name = {$regex: name, $options: 'ix' } }
         if (country) { query.country = {$regex: country, $options: 'ix' } }
         if (role) { query.role = role }
+        if (email) { query.email = {$regex: email, $options: 'ix' } }
         
         let all = await User.find(query)
 
