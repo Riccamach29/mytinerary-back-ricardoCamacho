@@ -1,4 +1,4 @@
-import Itinerary from "../../models/Itinerary";
+import User from "../../models/User.js";
 import mongoose from "mongoose";
 
 let remove = async (req, res, next) => {

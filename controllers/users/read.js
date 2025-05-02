@@ -8,7 +8,7 @@ let allUser = async(req,res,next)=>{
         if (country) { query.country = {$regex: country, $options: 'ix' } }
         if (role) { query.role = role }
         
-        let all = await User.find(query).exec()
+        let all = await User.find(query)
 
         return res.status(200).json({
             success: true,
