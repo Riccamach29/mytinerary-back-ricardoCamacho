@@ -1,6 +1,6 @@
 import joi from 'joi-oid'
 
-const schema = joi.object({
+const schemaOneUser = joi.object({
     name: joi.string()
     .min(3)
     .max(30)
@@ -58,4 +58,6 @@ const schema = joi.object({
 
 })
 
-export default schema
+
+
+export { schemaOneUser };

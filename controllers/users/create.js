@@ -16,17 +16,6 @@ let Register = async (req, res, next) => {
     }
 
 
-let createMany = async (req, res, next) => {
-    try {
-        let userInfo = req.body;       
-        let createdUsers = await User.insertMany(userInfo);
-        return res.status(201).json({
-            response: createdUsers
-        });
-        
-    } catch (error) {
-        next(error);
-    }
-};
 
-export { Register, createMany }; 
+
+export default Register; 
