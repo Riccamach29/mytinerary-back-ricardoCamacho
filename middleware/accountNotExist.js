@@ -13,6 +13,7 @@ export default async (req, res, next) => {
             photo: account.photo,
             country: account.country,
             role: account.role,
+            online: account.online,
         }
         
         return next();

@@ -8,12 +8,12 @@ import updateUserBodySchema from '../schema/users/update.js';
 import validator from '../middleware/validator.js';
 import accountExist from "../middleware/accountExist.js";
 import createHash from "../middleware/createHash.js";
-
+import passport from "../middleware/passport.js";
 
 
 const routerUser = Router();
 
-routerUser.get('/allUsers', allUser);
+routerUser.get('/allUsers',passport.authenticate('jwt', {session: false}), allUser);
 routerUser.get('/userByEmail/:emailParams', userByEmail);
 routerUser.get('/userById/:idParams', userById);
 routerUser.get('/userByCountry/:country', userByCountry);

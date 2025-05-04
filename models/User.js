@@ -10,6 +10,7 @@ let schema = new Schema(
         photo: { type: String, required: true },
         country: { type: String, required: true, index: true },
         role: { type: Number, required: true, default: 0, index: true }, // 0 = user, 1 = admin
+        online: { type: Boolean, default: false, index: true },
     },
     {
         timestamps: true,
