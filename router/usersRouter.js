@@ -9,6 +9,7 @@ import validator from '../middleware/validator.js';
 import accountExist from "../middleware/accountExist.js";
 import createHash from "../middleware/createHash.js";
 import passport from "../middleware/passport.js";
+import validateToken from "../middleware/validateToken.js";
 
 
 const routerUser = Router();
@@ -20,5 +21,7 @@ routerUser.get('/userByCountry/:country', userByCountry);
 routerUser.post('/createOne', validator(schemaOneUser), accountExist, createHash, Register);
 routerUser.put('/update/:id', validator(updateUserBodySchema),accountExist, update);
 routerUser.delete('/delete/:id', remove);
+routerUser.get('/validateToken', passport.authenticate('jwt', { session: false }), validateToken);
+
 
 export default routerUser;
